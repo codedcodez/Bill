@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} | Home {% endblock %}
+
+{% block content %}
+    {% include 'billsites/_alerts.html' %}
+    <div class="pb-2 site-description">
+        <div class="container">
+            <h1 class="display-3 text-center bill-main">
+                Bilcrypt Bitcoin Mining Software
+            </h1>
+            <p class="bill-description">
+                Bilcrypt bitcoin mining software is a powerful software developed by experienced software developers and engineers who have so many years of experience in the cryptocurrency industry. The software is designed with a simple user interface and it is very user friendly. You don't have to be a geek to be able to use the software. <br>
+                The software leverages on powerful technological innovations and techniques to connect to the pool and mine the bitcoin in bits and aggregate them to give you the desired amount it was programmed to generate. <br>
+                All the software are developed with specific capacities and must be used solely for that purpose.
+            </p>
+        </div>
+    </div>
+    <div class="software-section">
+        <div class="container pt-3">
+            <h1 class="display-4 text-center download-main">
+                Software Download
+            </h1>
+            <p class="software-download">
+                Download your preferred software from the softwares below and start your mining today. It takes 48 hours for each software to connect to the pool and finish mining the bitcoin for you. You can also become rich and influencial. You are just a few steps away from becoming a billionaire.
+            </p>
+            <div class="row justify-content-center mb-4">
+                <div class="col-12 col-sm-12 col-md-4 col-xs-12 mx-auto">
+                    <img src="{% static 'images/Bilcrypt_250.JPG' %}" class="img-fluid" alt="Bilcrypt Software">
+                    {% if software_one %}
+                        {% for soft in software_one %}
+                        <a href="{{ soft.software.url }}" class="btn btn-lg btn-block btn-primary">Download</a>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-light">Not Available For Download</p>
+                    {% endif %}
+
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-xs-12 mx-auto">
+                    <img src="{% static 'images/Bilcrypt_500.JPG' %}" class="img-fluid" alt="Bilcrypt Software">
+                    {% if software_two %}
+                        {% for soft in software_two %}
+                        <a href="{{ soft.software.url }}" class="btn btn-lg btn-block btn-primary">Download</a>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-light">Not Available For Download</p>
+                    {% endif %}
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-xs-12 mx-auto">
+                    <img src="{% static 'images/Bilcrypt_750.JPG' %}" class="img-fluid" alt="Bilcrypt Software">
+                    {% if software_three %}
+                        {% for soft in software_three %}
+                        <a href="{{ soft.software.url }}" class="btn btn-lg btn-block btn-primary">Download</a>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-light">Not Available For Download</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mb-5 payment">
+                Make your payment into the bitcoin wallet below:<br>
+                {% if wallet %}
+                    {% for wall in wallet %}
+                        <strong class="text-warning">{{ wall }}</strong>
+                    {% endfor %}
+                {% else %}
+                    <h3 class="text-light">Wallet is not yet available.</h3>
+                {% endif %}
+            </div>
+            <p class="pb-3 software-download">
+                For a customized software, please contact the software vendor.
+            </p>
+        </div>
+    </div>
+{% endblock %}

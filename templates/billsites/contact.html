@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} | Contact {% endblock %}
+
+{% block content %}
+<section id="register" class="form-bg py-5">
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-6 col-xs-6 mx-auto">
+      <div class="card">
+        <div class="card-header text-white text-center card-bg">
+          <h4>
+            <i class="fas fa-address-book"></i> Contact</h4>
+        </div>
+        <div class="card-body">
+              <form method="post" novalidate>
+                  {% csrf_token %}
+                  {{ contact_form|crispy }}
+                  <button type="submit" class="btn btn-lg btn-block card-bg text-light">Submit</button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+{% endblock %}
