@@ -69,9 +69,9 @@ WSGI_APPLICATION = 'billpro.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'billdb',
-        'USER': 'postgres',
-        'PASSWORD': 'love@1809',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
     }
 }
