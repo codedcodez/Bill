@@ -6,4 +6,5 @@ __pycache__/
 local_settings.py
 db.sqlite3
 /media
-mh-env
+bill-env
+secret_details.txt
