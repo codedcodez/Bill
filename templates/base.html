@@ -112,7 +112,7 @@
                                 class="nav-item"
                             {% endif %}
                         >
-                            <a class="nav-link btn btn-outline-warning" href="{% url 'user_accounts:signup' %}">SIGNUP</a>
+                            <a class="nav-link btn btn-outline-warning mb-3" href="{% url 'user_accounts:signup' %}">SIGNUP</a>
                         </li>
                         <li
                             {% if 'login' in request.path %}
@@ -136,7 +136,7 @@
     {% endblock %}
 
 
-    <footer class="text-muted footer text-light my-0">
+    <footer class="text-muted footer text-light mt-0 pt-0">
         <div class="container text-center py-4">
             <p>&copy; {% now 'Y' %} Bilcrypt, All Rights Reserved.</p>
         </div>
