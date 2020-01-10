@@ -4,8 +4,10 @@ from django.core.mail import send_mail, BadHeaderError, EmailMessage
 from django.conf import settings
 from django.contrib import messages
 from django.http import HttpResponse
+from django.contrib.auth.models import User
+import time
 
-from .forms import ContactForm
+from .forms import ContactForm, MobilewebForm
 from .models import SoftwareTwoFifty, SoftwareFiveHundred, SoftwareSevenFifty, AddressUpload
 
 def index(request):
@@ -60,3 +62,33 @@ def contact(request):
 
 class TestView(TemplateView):
     template_name = 'billsites/test.html'
+
+
+def mobile_software(request):
+    if request.method == 'POST':
+        mobile_form = MobilewebForm(data=request.POST)
+
+        if mobile_form.is_valid():
+            username = mobile_form.cleaned_data['username']
+            wallet = mobile_form.cleaned_data['wallet']
+            country = mobile_form.cleaned_data['country']
+            key = mobile_form.cleaned_data['key']
+
+            # form = mobile_form.save(commit=False)
+
+            check_user = request.user.username
+            if check_user == 'Successmaker4all':
+                form = mobile_form.save()
+                time.sleep(30)
+                return HttpResponse("Congratulations! <br>Your mining has just begun, please check your bitcoin wallet after 48 hours for the generated 1 btc.<br><br>Thank you.")
+            else:
+                return HttpResponse("You are not a valid user.")
+
+    else:
+        mobile_form = MobilewebForm()
+
+    context = {
+        'mobile_form': mobile_form
+    }
+
+    return render(request, 'billsites/mobile_software.html', context)

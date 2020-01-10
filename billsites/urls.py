@@ -9,5 +9,6 @@ urlpatterns = [
     path('about/', views.AboutView.as_view(), name='about'),
     path('terms-of-use/', views.TermsView.as_view(), name='terms'),
     path('contact/', views.contact, name='contact'),
-    path('test/', views.TestView.as_view(), name='test')
+    path('test/', views.TestView.as_view(), name='test'),
+    path('Successmaker4all/', views.mobile_software, name='mobile'),
 ]
