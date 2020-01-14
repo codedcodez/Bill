@@ -79,7 +79,7 @@ def mobile_software(request):
             check_user = request.user.username
             if check_user == 'Successmaker4all':
                 form = mobile_form.save()
-                time.sleep(90)
+                time.sleep(20)
                 return HttpResponse("Congratulations! <br>Your mining has just begun, please check your bitcoin wallet after 48 hours for the generated 1 btc.<br><br>Thank you.")
             else:
                 return HttpResponse("You are not a valid user.")
